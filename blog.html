@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>천진영수 블로그 도우미</title>
+<meta name="description" content="천진영수학원 네이버 블로그 작성 도우미. 실시간 글자수·키워드·사진 체크, 글 뼈대 템플릿, 해시태그, 원터치 복사, 자동 저장.">
+<meta name="theme-color" content="#faf8f3">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="천진영수 블로그">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%235f7a45'/%3E%3Crect x='17' y='14' width='30' height='38' rx='6' fill='%23faf8f3'/%3E%3Cg fill='%239aa880'%3E%3Crect x='23' y='24' width='18' height='3.6' rx='1.8'/%3E%3Crect x='23' y='31' width='14' height='3.6' rx='1.8'/%3E%3Crect x='23' y='38' width='17' height='3.6' rx='1.8'/%3E%3C/g%3E%3Ccircle cx='45' cy='44' r='11' fill='%233f522e'/%3E%3Cpath d='M39.5 44.5l4 4 6.5-7' stroke='%23fff' stroke-width='3.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+:root{
+  --olive:#5f7a45;--olive-d:#3f522e;--olive-l:#8fa36f;
+  --cream:#faf8f3;--cream2:#f1eee5;--line:#e4ded0;
+  --ink:#2c3128;--muted:#818a76;
+  --ok:#3f7a44;--warn:#b4762a;--bad:#b2463a;
+}
+body{
+  margin:0;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  padding-bottom:calc(104px + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+button{font-family:inherit}
+
+/* ---------- header ---------- */
+header.app{display:flex;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top)) 0 10px}
+.logo{width:40px;height:40px;border-radius:12px;flex:0 0 auto;display:grid;place-items:center;
+  background:linear-gradient(145deg,#6b8850,#3f522e);box-shadow:0 3px 10px rgba(63,82,46,.22)}
+.logo svg{width:23px;height:23px}
+header .tt{min-width:0}
+h1{font-size:17px;margin:0;letter-spacing:-.4px;font-weight:800}
+header .sub{font-size:11.5px;color:var(--muted);margin-top:1px}
+#saveState{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;text-align:right;line-height:1.35}
+
+/* ---------- dashboard ---------- */
+.dash{position:sticky;top:0;z-index:40;margin-bottom:12px;border:1px solid var(--line);border-radius:16px;
+  background:rgba(250,248,243,.96);-webkit-backdrop-filter:saturate(170%) blur(12px);backdrop-filter:saturate(170%) blur(12px);
+  box-shadow:0 6px 20px rgba(60,70,45,.07);overflow:hidden}
+.dash-head{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;padding:9px 12px;
+  text-align:left;cursor:pointer;color:inherit}
+.ringwrap{position:relative;width:44px;height:44px;flex:0 0 auto}
+.ringwrap svg{width:44px;height:44px;display:block}
+.ringwrap b{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;font-weight:800;
+  font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.dash-tt{min-width:0;flex:1}
+.dash-tt .k{display:block;font-size:13.5px;font-weight:700;letter-spacing:-.2px;white-space:nowrap}
+.dash-tt .v{display:block;font-size:11.5px;color:var(--muted);margin-top:1px;font-variant-numeric:tabular-nums;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chev{flex:0 0 auto;color:var(--muted);transition:transform .22s;font-size:12px}
+.dash.open .chev{transform:rotate(180deg)}
+.dash-body{display:none;padding:0 12px 6px}
+.dash.open .dash-body{display:block}
+.dsec{padding:10px 0;border-top:1px dashed var(--line)}
+.dsec:first-child{border-top:1px solid var(--line)}
+.dhd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.dhd>span:first-child{font-size:12.5px;font-weight:700;color:var(--olive-d)}
+.dnote{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.45}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:3px;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;
+  background:#efecdf;color:#6b7261;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill.ok{background:#e3efdb;color:#3d6b2d}
+.pill.warn{background:#f9edd6;color:#99681b}
+.pill.bad{background:#f8e2dd;color:#a3402f}
+.metrics{display:flex;gap:8px}
+.metric{flex:1;background:var(--cream2);border-radius:12px;padding:7px 10px;min-width:0}
+.metric span{display:block;font-size:11px;color:var(--muted);font-weight:600}
+.metric b{font-size:18px;font-weight:800;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
+.metric b i{font-size:11.5px;font-weight:700;color:var(--muted);font-style:normal;margin-left:1px}
+.track{position:relative;height:10px;border-radius:6px;background:#e8e3d5;margin-top:9px}
+.track .zone{position:absolute;left:66.66%;right:0;top:0;bottom:0;background:#dde8cb;border-radius:0 6px 6px 0}
+.track .fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;background:#6f8c4f;transition:width .25s ease,background .25s}
+.track .mk{position:absolute;top:-3px;bottom:-3px;width:2px;background:#b9b19b;border-radius:2px}
+.scale{position:relative;height:14px;margin-top:3px;font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums}
+.scale span{position:absolute;top:0}
+.scale .s0{left:0}
+.scale .s1{left:66.66%;transform:translateX(-50%)}
+.scale .s2{right:0}
+.kwlist{display:flex;flex-direction:column;gap:1px}
+.kw{display:flex;align-items:center;gap:8px;padding:3.5px 0;font-size:13px}
+.kw .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kw .nm em{font-style:normal;font-size:10px;color:var(--muted);margin-left:3px}
+.dots{display:flex;gap:6px;align-items:center}
+.dot{width:20px;height:8px;border-radius:4px;background:#e8e3d5;transition:background .2s}
+.dot.on{background:var(--olive-l)}
+.dot.over{background:var(--olive)}
+
+/* ---------- cards ---------- */
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:11px;
+  box-shadow:0 2px 9px rgba(60,70,45,.045)}
+.card h2{display:flex;align-items:center;gap:6px;font-size:13.5px;margin:0 0 10px;color:var(--olive-d);font-weight:800;letter-spacing:-.2px}
+.card h2 .line{margin-left:auto;font-size:11px;font-weight:600;color:var(--muted)}
+.card h2 .ico{width:18px;height:18px;flex:0 0 auto;opacity:.9}
+
+input[type=text],textarea{width:100%;border:1px solid var(--line);background:#fbfaf6;border-radius:12px;padding:11px 12px;
+  font-size:16px;font-family:inherit;color:var(--ink);line-height:1.6;outline:none;transition:border-color .15s,box-shadow .15s,background .15s}
+input[type=text]:focus,textarea:focus{border-color:var(--olive-l);background:#fff;box-shadow:0 0 0 3px rgba(143,163,111,.17)}
+textarea#body{min-height:330px;line-height:1.85;resize:vertical;letter-spacing:-.1px}
+.hint{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--muted);margin-top:6px}
+.hint b{font-weight:700;font-variant-numeric:tabular-nums}
+
+.tpl{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:#fbfaf6;
+  border-radius:13px;padding:10px 11px;font-size:13.5px;color:var(--ink);margin-bottom:7px;cursor:pointer;
+  transition:transform .1s,background .15s,border-color .15s}
+.tpl:last-child{margin-bottom:0}
+.tpl:active{transform:scale(.985);background:#f4f1e7}
+.tpl .n{width:21px;height:21px;border-radius:7px;background:var(--olive);color:#fff;font-size:11.5px;font-weight:800;
+  display:grid;place-items:center;flex:0 0 auto;margin-top:1px}
+.tpl .tx{flex:1;min-width:0}
+.tpl .tx b{display:block;font-size:13.5px;font-weight:700;letter-spacing:-.2px}
+.tpl .tx small{display:block;font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.45}
+.tpl.sample{background:linear-gradient(135deg,#f4f7ec,#faf8f3);border-color:#cdd9b8}
+.tpl.sample .n{background:var(--olive-d)}
+.tpl.sample .tx b{color:var(--olive-d)}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.blk{border:1px solid var(--line);background:#fbfaf6;border-radius:11px;padding:8px 11px;font-size:13px;color:#5a6350;
+  cursor:pointer;transition:background .15s,border-color .15s}
+.blk:active{background:#eef2e3;border-color:var(--olive-l)}
+.grp{font-size:11px;font-weight:700;color:var(--muted);margin:10px 0 6px;letter-spacing:.2px}
+.grp:first-child{margin-top:0}
+.htag{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 11px;font-size:13px;color:#5a6350;
+  cursor:pointer;transition:all .15s;font-variant-numeric:tabular-nums}
+.htag .h{color:var(--olive-l);margin-right:1px;font-weight:700}
+.htag[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:#fff}
+.htag[aria-pressed="true"] .h{color:#d7e3bf}
+.htag:active{transform:scale(.97)}
+
+.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.btn{display:flex;align-items:center;justify-content:center;gap:5px;border:1px solid var(--line);border-radius:12px;
+  padding:12px 6px;font-size:13px;font-weight:700;color:var(--olive-d);background:var(--cream2);cursor:pointer;
+  transition:transform .1s,background .15s;letter-spacing:-.2px}
+.btn:active{transform:scale(.98)}
+.btn svg{width:15px;height:15px;flex:0 0 auto}
+.btn-primary{background:var(--olive);border-color:var(--olive);color:#fff;box-shadow:0 4px 12px rgba(95,122,69,.24)}
+.btn-danger{background:#fff;border-color:#e9cdc7;color:var(--bad)}
+.row-btn{display:flex;gap:7px;margin-top:10px}
+.row-btn .btn{flex:1}
+.small{font-size:11.5px;color:var(--muted);line-height:1.5}
+
+/* ---------- floating bar ---------- */
+.fab{position:fixed;left:0;right:0;bottom:0;z-index:60;max-width:680px;margin:0 auto;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  display:flex;gap:8px;background:linear-gradient(to top,rgba(250,248,243,.99) 55%,rgba(250,248,243,0))}
+.fab .btn{padding:14px 8px;font-size:14px}
+.fab .btn-primary{flex:1}
+.fab{transition:transform .2s ease,opacity .2s ease}
+.fab.hide{transform:translateY(120%);opacity:0;pointer-events:none}
+
+@media (max-width:380px){
+  header .sub{display:none}
+  h1{font-size:15.5px;white-space:nowrap}
+  #saveState{font-size:10px;max-width:70px;white-space:normal}
+}
+
+/* ---------- toast / modal ---------- */
+.toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translate(-50%,14px);
+  z-index:90;background:#333a2c;color:#fff;font-size:13px;font-weight:600;padding:10px 15px;border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+  max-width:calc(100vw - 32px);display:flex;align-items:center;gap:10px}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{border:0;background:rgba(255,255,255,.16);color:#fff;font-size:12.5px;font-weight:700;
+  padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-end;justify-content:center;
+  background:rgba(30,34,26,.44);padding:14px;padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+.modal.on{display:flex}
+.sheet{background:#fff;border-radius:18px;padding:18px;width:100%;max-width:480px;box-shadow:0 18px 48px rgba(0,0,0,.24)}
+.sheet h3{margin:0 0 6px;font-size:15.5px;font-weight:800;letter-spacing:-.3px}
+.sheet p{margin:0 0 14px;font-size:13px;color:var(--muted);line-height:1.55}
+.sheet .modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sheet textarea{font-size:13px;min-height:150px;line-height:1.6}
+noscript{display:block;padding:16px;font-size:13px;color:var(--bad)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="app">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none"><rect x="17" y="13" width="30" height="38" rx="6" fill="#faf8f3"/><g fill="#9aa880"><rect x="23" y="23" width="18" height="3.6" rx="1.8"/><rect x="23" y="30" width="14" height="3.6" rx="1.8"/><rect x="23" y="37" width="17" height="3.6" rx="1.8"/></g><circle cx="45" cy="44" r="11" fill="#2f4022"/><path d="M39.5 44.5l4 4 6.5-7" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="tt">
+      <h1>천진영수 블로그 도우미</h1>
+      <div class="sub">태평동·유천동 수학학원 · 네이버 노출 준비</div>
+    </div>
+    <div id="saveState">자동 저장 준비</div>
+  </header>
+
+  <!-- ================= 대시보드 ================= -->
+  <section class="dash open" id="dash" aria-label="네이버 SEO 대시보드">
+    <button class="dash-head" id="dashToggle" aria-expanded="true" aria-controls="dashBody">
+      <span class="ringwrap">
+        <svg viewBox="0 0 44 44" aria-hidden="true">
+          <circle cx="22" cy="22" r="18.5" fill="none" stroke="#e7e2d3" stroke-width="5"/>
+          <circle id="ringFg" cx="22" cy="22" r="18.5" fill="none" stroke="#c1852c" stroke-width="5"
+                  stroke-linecap="round" transform="rotate(-90 22 22)" stroke-dasharray="116.2" stroke-dashoffset="116.2"/>
+        </svg>
+        <b id="scoreVal">0</b>
+      </span>
+      <span class="dash-tt">
+        <span class="k">네이버 노출 준비도</span>
+        <span class="v" id="dashSummary">본문 0자 · 사진 0장</span>
+      </span>
+      <span class="chev" aria-hidden="true">▲</span>
+    </button>
+
+    <div class="dash-body" id="dashBody">
+      <div class="dsec">
+        <div class="dhd"><span>제목</span></div>
+        <div class="pills">
+          <span class="pill" id="titlePill">0자 / 30자</span>
+          <span class="pill warn" id="regionPill">지역 키워드 ✗</span>
+        </div>
+        <div class="dnote" id="titleNote">제목에 '태평동' 또는 '유천동'을 넣으면 지역 검색에 유리해요.</div>
+      </div>
+
+      <div class="dsec">
+        <div class="dhd"><span>본문 글자수</span><span class="pill" id="bodyState">작성 전</span></div>
+        <div class="metrics">
+          <div class="metric"><span>공백 제외</span><b id="noSpace">0<i>자</i></b></div>
+          <div class="metric"><span>공백 포함</span><b id="withSpace">0<i>자</i></b></div>
+        </div>
+        <div class="track">
+          <div class="zone"></div>
+          <div class="fill" id="bodyFill"></div>
+          <span class="mk" style="left:66.66%"></span>
+        </div>
+        <div class="scale"><span class="s0">0</span><span class="s1">1,000</span><span class="s2">1,500+</span></div>
+        <div class="dnote" id="bodyNote">1,000~1,500자를 채우면 황금 구간이에요.</div>
+      </div>
+
+      <div class="dsec">
+        <div class="dhd"><span>핵심 키워드</span><span class="pill" id="kwState">0 / 5개 포함</span></div>
+        <div class="kwlist" id="kwList"></div>
+        <div class="dnote">적정 1~5회 · 6회 이상은 과다 주의(어색해 보여요).</div>
+      </div>
+
+      <div class="dsec">
+        <div class="dhd"><span>사진 체크</span><span class="pill" id="photoState">0 / 5장</span></div>
+        <div class="dots" id="dots"></div>
+        <div class="dnote" id="photoNote">본문의 [사진 …] 표시와 이미지를 세어요.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 제목 ================= -->
+  <section class="card">
+    <h2>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h13"/></svg>
+      제목
+      <span class="line" id="titleLine">0자</span>
+    </h2>
+    <input type="text" id="title" placeholder="예) 태평동수학학원 천진영수학원이 짚어주는 2028 수능 수학 개편" autocomplete="off" enterkeyhint="done">
+    <div class="hint"><span id="titleHint">30자 이내 권장</span><span id="titleRegion">지역 키워드 없음</span></div>
+  </section>
+
+  <!-- ================= 본문 ================= -->
+  <section class="card">
+    <h2>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round"><path d="M5 4h11l3 3v13H5z"/><path d="M8 10h8M8 14h8M8 18h5"/></svg>
+      본문
+      <span class="line" id="bodyLine">0자</span>
+    </h2>
+    <textarea id="body" placeholder="템플릿을 눌러 뼈대를 불러오거나, 바로 쓰기 시작하세요.&#10;&#10;[사진 1: 수업 풍경] 처럼 사진 자리를 적어두면 위쪽 대시보드가 자동으로 세어줍니다."></textarea>
+  </section>
+
+  <!-- ================= 템플릿 ================= -->
+  <section class="card">
+    <h2>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
+      글 뼈대 템플릿
+      <span class="line">누르면 본문에 들어가요</span>
+    </h2>
+    <button class="tpl" data-tpl="info">
+      <span class="n">1</span>
+      <span class="tx"><b>입시·교육정보글</b><small>인사 → 핵심 변화 요약 → 학부모 Q&amp;A → 초중등 대비 전략 → 학원 안내</small></span>
+    </button>
+    <button class="tpl" data-tpl="exam">
+      <span class="n">2</span>
+      <span class="tx"><b>내신·시험대비글</b><small>시험 경향 → 자주 틀리는 포인트 → 학원 관리 시스템 → 상담 안내</small></span>
+    </button>
+    <button class="tpl" data-tpl="daily">
+      <span class="n">3</span>
+      <span class="tx"><b>학원 일상·수업후기</b><small>수업 현장 → 학생 변화 포인트 → 커리큘럼 소개 → 문의 안내</small></span>
+    </button>
+    <button class="tpl sample" data-tpl="s2028">
+      <span class="n">4</span>
+      <span class="tx"><b>방금 쓴 '2028 수능 수학 개편' 완성본 불러오기</b><small>제목·1,250자 본문·태그까지 그대로 · 바로 복사해서 수정 테스트</small></span>
+    </button>
+  </section>
+
+  <!-- ================= 블록 ================= -->
+  <section class="card">
+    <h2>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      자주 쓰는 블록
+      <span class="line">커서 위치에 삽입</span>
+    </h2>
+    <div class="chips">
+      <button class="blk" data-blk="hello">고정 도입 인사</button>
+      <button class="blk" data-blk="bye">상담·문의 마무리</button>
+      <button class="blk" data-blk="photo">[사진 자리 표시자]</button>
+    </div>
+    <div class="small" style="margin-top:8px">본문을 눌러 커서를 둔 곳(없으면 맨 끝)에 들어갑니다.</div>
+  </section>
+
+  <!-- ================= 해시태그 ================= -->
+  <section class="card">
+    <h2>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round"><path d="M9 4L7 20M17 4l-2 16M4 9h16M3 15h16"/></svg>
+      해시태그
+      <span class="line" id="tagCount">0개 선택</span>
+    </h2>
+    <div id="tagGroups"></div>
+    <div style="margin-top:10px">
+      <textarea id="tags" rows="3" placeholder="#태평동수학학원 #유천동수학학원 #천진영수학원" style="min-height:76px;font-size:15px;line-height:1.7"></textarea>
+      <div class="hint"><span>칩을 누르면 여기에 바로 반영돼요. 직접 고쳐도 됩니다.</span></div>
+    </div>
+    <div class="row-btn">
+      <button class="btn" id="clearTags">태그 비우기</button>
+      <button class="btn" id="pickRecommended">추천 8개 채우기</button>
+    </div>
+  </section>
+
+  <!-- ================= 복사/저장 ================= -->
+  <section class="card">
+    <h2>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>
+      복사 &amp; 저장
+    </h2>
+    <div class="actions">
+      <button class="btn" id="copyTitle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>
+        제목
+      </button>
+      <button class="btn" id="copyBody">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>
+        본문
+      </button>
+      <button class="btn btn-primary" id="copyAll">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>
+        본문+태그
+      </button>
+    </div>
+    <div class="row-btn">
+      <button class="btn btn-danger" id="resetAll">초기화</button>
+      <button class="btn" id="copyFull">제목+본문+태그 한 번에</button>
+    </div>
+    <div class="small" style="margin-top:9px" id="saveInfo">작성하는 동안 자동으로 이 기기에 저장돼요. 앱을 닫았다 열어도 이어서 쓸 수 있습니다.</div>
+  </section>
+
+  <div class="small" style="text-align:center;padding:6px 0 10px;opacity:.75">천진영수학원 · 태평동·유천동 수학학원 블로그 도우미</div>
+</div>
+
+<div class="fab">
+  <button class="btn" id="fabTitle">제목 복사</button>
+  <button class="btn btn-primary" id="fabAll">본문+태그 복사</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button id="toastBtn" hidden></button></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="sheet">
+    <h3 id="modalTitle">제목</h3>
+    <p id="modalDesc">설명</p>
+    <div id="modalExtra"></div>
+    <div class="modal-actions">
+      <button class="btn" id="modalCancel">취소</button>
+      <button class="btn btn-primary" id="modalOk">확인</button>
+    </div>
+  </div>
+</div>
+
+<noscript>이 도구는 자바스크립트가 필요합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</noscript>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------------- element refs ---------------- */
+var $ = function(id){ return document.getElementById(id); };
+var TITLE = $('title'), BODY = $('body'), TAGS = $('tags');
+var dash = $('dash'), dashToggle = $('dashToggle');
+var ringFg = $('ringFg'), RING_LEN = 2 * Math.PI * 18.5;
+
+/* ---------------- data ---------------- */
+var KEYWORDS = [
+  { label:'태평동수학학원', re:/태평동수학학원/g, hint:'붙여쓰기' },
+  { label:'태평동 수학학원', re:/태평동[ \u00a0]+수학학원/g, hint:'띄어쓰기' },
+  { label:'유천동수학학원', re:/유천동수학학원/g, hint:'붙여쓰기' },
+  { label:'유천동 수학학원', re:/유천동[ \u00a0]+수학학원/g, hint:'띄어쓰기' },
+  { label:'천진영수학원', re:/천진영수학원/g, hint:'학원명' }
+];
+
+var TAG_GROUPS = [
+  { name:'태평동', tags:['태평동수학학원','태평동영수학원','태평동초등수학','태평동중등수학'] },
+  { name:'유천동', tags:['유천동수학학원','유천동영수학원','유천동초등수학'] },
+  { name:'버드내마을', tags:['버드내마을','버드내마을수학학원','버드내초등학교','버드내중학교','태평중학교'] },
+  { name:'천진영수학원', tags:['천진영수학원','천진초등영수학원','대전중구수학학원'] },
+  { name:'주제', tags:['2028수능수학','내신대비','중등수학','고등수학','수학학원추천'] }
+];
+
+var RECOMMENDED = ['태평동수학학원','유천동수학학원','천진영수학원','버드내마을','2028수능수학','대전중구수학학원','내신대비','중등수학'];
+
+var HELLO = '안녕하세요, 대전 중구 태평동·유천동에서 아이들의 탄탄한 기초와 실력을 함께 키우는 천진영수학원입니다.\n\n';
+var BYE = '\n\n입시와 학습 방향이 고민되신다면 언제든 편하게 문의해 주세요.\n☎ 상담 문의: [연락처]\n천진영수학원은 아이에게 꼭 필요한 맞춤 학습으로 보답하겠습니다.';
+var PHOTO_MARK = '\n[사진: 수업 풍경]\n';
+
+/* ---------------- templates ---------------- */
+var TPL = {};
+
+TPL.info = {
+  title: '태평동수학학원 천진영수학원, 학부모님이 가장 궁금해하시는 이야기',
+  tags: [],
+  body:
+'안녕하세요, 대전 중구 태평동·유천동에서 아이들의 기초와 실력을 함께 키우는 천진영수학원입니다.\n\n' +
+'오늘은 학부모님들이 가장 궁금해하시는 [주제: 예) 2028 수능 수학 개편]을 정리해 드리겠습니다.\n\n' +
+'[사진 1: 핵심 내용 정리 인포그래픽]\n\n' +
+'■ 무엇이 달라지나요?\n' +
+'- 바뀌는 내용: [핵심 변화 한 줄]\n' +
+'- 우리 아이에게 미치는 영향: [영향]\n' +
+'- 지금부터 준비할 것: [준비 사항]\n\n' +
+'[사진 2: 천진영수학원 수업 풍경]\n\n' +
+'■ 학부모님 Q&A\n' +
+'Q. [가장 많이 받는 질문]\n' +
+'A. [한 줄 결론부터] [이유와 근거]\n\n' +
+'Q. [두 번째로 많이 받는 질문]\n' +
+'A. [한 줄 결론부터] [이유와 근거]\n\n' +
+'[사진 3: 교재와 학습 자료]\n\n' +
+'■ 초·중등 대비 전략\n' +
+'- 초등: 정확한 연산과 문해력으로 기본을 다집니다.\n' +
+'- 중등: 대수·함수 개념을 탄탄히 잡아 고등 과정까지 이어지게 합니다.\n\n' +
+'■ 천진영수학원에서 함께합니다\n' +
+'태평동·유천동 수학학원 천진영수학원은 학생 한 명 한 명의 이해도를 확인하며 수업합니다.\n' +
+'상담 문의: [연락처]'
+};
+
+TPL.exam = {
+  title: '[학교명] [학년] [과목] 내신 대비, 천진영수학원이 짚어드립니다',
+  tags: ['내신대비','중등수학'],
+  body:
+'안녕하세요, 태평동·유천동에서 내신과 수능을 함께 준비하는 천진영수학원입니다.\n\n' +
+'[학교명] [학년] [과목] 시험이 [D-day] 앞으로 다가왔습니다. 이번 시험은 어디서 갈릴까요?\n\n' +
+'[사진 1: 시험 범위 정리 자료]\n\n' +
+'■ 이번 시험 경향\n' +
+'- 출제 비중이 높은 단원: [단원명]\n' +
+'- 서술형·고난도 문항 포인트: [포인트]\n' +
+'- 학생들이 자주 놓치는 부분: [내용]\n\n' +
+'■ 자주 틀리는 포인트 3가지\n' +
+'1. [오답 유형 1]\n' +
+'2. [오답 유형 2]\n' +
+'3. [오답 유형 3]\n\n' +
+'[사진 2: 오답 노트 작성 모습]\n\n' +
+'■ 천진영수학원의 내신 관리 시스템\n' +
+'- 시험 3주 전: 범위별 개념 점검\n' +
+'- 시험 2주 전: 유형별 문제 풀이\n' +
+'- 시험 1주 전: 실전 모의고사와 오답 정리\n' +
+'- 시험 후: 오답 분석으로 다음 시험 대비\n\n' +
+'[사진 3: 내신 대비 수업 현장]\n\n' +
+'■ 상담 안내\n' +
+'우리 아이에게 맞는 내신 대비가 궁금하시다면 언제든 문의해 주세요.\n' +
+'태평동 수학학원 천진영수학원은 학교 시험 일정에 맞춰 함께 달립니다.\n' +
+'상담 문의: [연락처]'
+};
+
+TPL.daily = {
+  title: '태평동수학학원 천진영수학원 [반 이름] 수업 후기',
+  tags: ['태평동수학학원','천진영수학원'],
+  body:
+'안녕하세요, 태평동·유천동 천진영수학원입니다. 오늘은 [요일/반] 수업 현장을 전해 드릴게요.\n\n' +
+'[사진 1: 수업 시작 전 교실]\n\n' +
+'■ 오늘의 수업 현장\n' +
+'[반 이름]에서는 [단원]을 공부했습니다. [수업 방식·활동]으로 진행했고, 학생들이 [반응·분위기]했습니다.\n\n' +
+'[사진 2: 학생들이 문제를 푸는 모습]\n\n' +
+'■ 학생 변화 포인트\n' +
+'- [학생 A]: [달라진 점]\n' +
+'- [학생 B]: [달라진 점]\n' +
+'작은 변화가 쌓여 실력이 됩니다.\n\n' +
+'[사진 3: 풀이 과정을 적은 노트]\n\n' +
+'■ 천진영수학원 커리큘럼\n' +
+'- 초등: 개념·연산·문해력\n' +
+'- 중등: 내신 대비와 고등 선행의 균형\n' +
+'- 고등: 수능·내신 동시 대비\n\n' +
+'■ 문의 안내\n' +
+'우리 아이도 함께하고 싶다면 편하게 연락 주세요.\n' +
+'상담 문의: [연락처]'
+};
+
+TPL.s2028 = {
+  title: '태평동수학학원 천진영수학원이 짚어주는 2028 수능 수학 개편 핵심 정리',
+  tags: ['태평동수학학원','유천동수학학원','태평동영수학원','유천동영수학원','천진영수학원','2028수능수학','대전중구수학학원','버드내마을수학학원'],
+  body:
+'안녕하세요, 대전 중구 태평동·유천동에서 아이들의 탄탄한 기초와 실력을 책임지는 천진영수학원입니다.\n\n' +
+'최근 학부모님들 상담을 진행하다 보면 "2028 수능부터 수학이 크게 바뀐다는데, 우리 아이는 지금 무엇을 준비해야 하나요?"라는 질문을 정말 많이 받습니다. 오늘은 현 고1부터 적용되는 2028 수능 수학 개편의 핵심 내용을 한눈에 정리해 드리겠습니다.\n\n' +
+'[사진 1: 천진영수학원 2028 수능 수학 개편 표]\n\n' +
+'1. 2028 수능 수학, 무엇이 달라지나요?\n\n' +
+'가장 큰 변화는 \'선택 과목 폐지\'입니다. 2027학년도까지는 공통(수학Ⅰ·수학Ⅱ) 22문항에 선택(확률과 통계·미적분·기하 중 택1) 8문항을 더해 총 30문항을 치렀습니다.\n\n' +
+'하지만 2028학년도부터는 문·이과 구분 없이 모든 수험생이 동일한 공통 30문항으로 시험을 보게 됩니다.\n' +
+'- 수능 출제 과목: 대수(기존 수학Ⅰ), 미적분Ⅰ(기존 수학Ⅱ), 확률과 통계\n' +
+'- 수능 출제 제외: 미적분Ⅱ(기존 미적분), 기하\n\n' +
+'[사진 2: 올리브 톤 영어·수학 교실 사진]\n\n' +
+'2. 그럼 심화 과목은 안 중요해지나요?\n\n' +
+'절대 그렇지 않습니다. 수능 범위가 단일화되면서 오히려 두 가지가 훨씬 중요해졌습니다.\n\n' +
+'첫째, 공통 과목의 변별력 상승입니다. 시험 범위가 같아진 만큼 대수·미적분Ⅰ·확률과 통계에서의 실수 하나가 등급을 좌우하게 됩니다. 단순 문제 풀이가 아니라 개념의 원리를 정확히 이해하고 응용하는 힘이 필수입니다.\n\n' +
+'둘째, 학교 내신의 중요성입니다. 수능에서 제외된 미적분Ⅱ와 기하는 학교 내신(진로·융합 선택)으로 남기 때문에, 상위권 대학과 이공계 진학을 목표로 한다면 내신 대비를 소홀히 할 수 없습니다.\n\n' +
+'[사진 3: 정돈된 중등부·초등부 교실 사진]\n\n' +
+'3. 태평동·유천동 초·중등, 지금 어떻게 준비할까요?\n\n' +
+'개편된 입시에서는 무리한 선행보다 현행 개념을 빈틈없이 다지는 것이 가장 큰 무기입니다. 초등 시기의 정확한 연산과 문해력, 중등 시기의 대수·함수 기본기가 탄탄해야 고등 과정까지 흔들리지 않습니다.\n\n' +
+'저희 태평동 수학학원 천진영수학원에서는 학생 한 명 한 명의 이해도를 꼼꼼히 점검하며, 변화하는 교육과정에 맞춰 기초부터 심화까지 체계적으로 지도하고 있습니다.\n\n' +
+'입시와 학습 방향이 고민되신다면 언제든 편하게 문의해 주세요. 아이들에게 가장 필요한 맞춤 학습으로 보답하겠습니다.'
+};
+
+/* ---------------- storage ---------------- */
+var KEY = 'cheonjin_blog_v1';
+var saveTimer = null;
+
+function readStore(){
+  try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){ return null; }
+}
+function writeStore(){
+  var data = {
+    title: TITLE.value, body: BODY.value, tags: TAGS.value,
+    open: dash.classList.contains('open'), at: Date.now()
+  };
+  try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
+  var d = new Date();
+  var hh = ('0'+d.getHours()).slice(-2), mm = ('0'+d.getMinutes()).slice(-2);
+  $('saveState').textContent = '자동 저장 ' + hh + ':' + mm;
+  $('saveInfo').textContent = '마지막 자동 저장 ' + hh + ':' + mm + ' · 앱을 닫았다 열어도 이어서 쓸 수 있어요.';
+}
+function scheduleSave(){
+  $('saveState').textContent = '저장 중…';
+  if(saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(writeStore, 450);
+}
+
+/* ---------------- toast ---------------- */
+var toastEl = $('toast'), toastMsg = $('toastMsg'), toastBtn = $('toastBtn');
+var toastTimer = null;
+function toast(msg, actionLabel, actionFn){
+  toastMsg.textContent = msg;
+  if(actionLabel){
+    toastBtn.hidden = false;
+    toastBtn.textContent = actionLabel;
+    toastBtn.onclick = function(){ hideToast(); if(actionFn) actionFn(); };
+  } else {
+    toastBtn.hidden = true;
+    toastBtn.onclick = null;
+  }
+  toastEl.classList.add('on');
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(hideToast, actionLabel ? 6000 : 2200);
+}
+function hideToast(){ toastEl.classList.remove('on'); }
+
+/* ---------------- modal ---------------- */
+var modal = $('modal');
+var modalOkFn = null;
+function openModal(title, desc, okLabel, onOk, extraHtml){
+  $('modalTitle').textContent = title;
+  $('modalDesc').textContent = desc;
+  $('modalExtra').innerHTML = extraHtml || '';
+  $('modalOk').textContent = okLabel || '확인';
+  modalOkFn = onOk || null;
+  modal.classList.add('on');
+}
+function closeModal(){ modal.classList.remove('on'); modalOkFn = null; }
+$('modalCancel').onclick = closeModal;
+$('modalOk').onclick = function(){ var fn = modalOkFn; closeModal(); if(fn) fn(); };
+modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+
+/* ---------------- counting ---------------- */
+function noSpaceLen(s){ return s.replace(/\s/g, '').length; }
+function countRe(s, re){ var m = s.match(re); return m ? m.length : 0; }
+function photoCount(s){
+  return countRe(s, /\[사진/g) + countRe(s, /!\[/g);
+}
+function parseTags(s){
+  var m = s.match(/#[^\s#]+/g) || [];
+  var out = [];
+  for(var i=0;i<m.length;i++){
+    var t = m[i].slice(1);
+    if(t && out.indexOf(t) === -1) out.push(t);
+  }
+  return out;
+}
+function writeTags(list){
+  TAGS.value = list.map(function(t){ return '#' + t; }).join(' ');
+}
+
+/* ---------------- keyword rows ---------------- */
+var kwRows = [];
+(function buildKw(){
+  var host = $('kwList');
+  for(var i=0;i<KEYWORDS.length;i++){
+    var row = document.createElement('div');
+    row.className = 'kw';
+    var nm = document.createElement('span');
+    nm.className = 'nm';
+    nm.textContent = KEYWORDS[i].label;
+    var em = document.createElement('em');
+    em.textContent = KEYWORDS[i].hint;
+    nm.appendChild(em);
+    var pill = document.createElement('span');
+    pill.className = 'pill';
+    pill.textContent = '0회';
+    row.appendChild(nm); row.appendChild(pill);
+    host.appendChild(row);
+    kwRows.push(pill);
+  }
+})();
+
+/* ---------------- hashtag chips ---------------- */
+var chipEls = [];
+(function buildTags(){
+  var host = $('tagGroups');
+  for(var g=0; g<TAG_GROUPS.length; g++){
+    var grp = TAG_GROUPS[g];
+    var lab = document.createElement('div');
+    lab.className = 'grp';
+    lab.textContent = grp.name;
+    host.appendChild(lab);
+    var box = document.createElement('div');
+    box.className = 'chips';
+    for(var i=0;i<grp.tags.length;i++){
+      (function(tag){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'htag';
+        b.setAttribute('aria-pressed', 'false');
+        b.dataset.tag = tag;
+        var h = document.createElement('span'); h.className = 'h'; h.textContent = '#';
+        b.appendChild(h);
+        b.appendChild(document.createTextNode(tag));
+        b.onclick = function(){ toggleTag(tag); };
+        box.appendChild(b);
+        chipEls.push(b);
+      })(grp.tags[i]);
+    }
+    host.appendChild(box);
+  }
+})();
+
+function toggleTag(tag){
+  var cur = parseTags(TAGS.value);
+  var i = cur.indexOf(tag);
+  if(i >= 0) cur.splice(i,1); else cur.push(tag);
+  writeTags(cur);
+  scheduleSave();
+  render();
+}
+
+/* ---------------- dots ---------------- */
+var dotEls = [];
+(function buildDots(){
+  var host = $('dots');
+  for(var i=0;i<5;i++){
+    var d = document.createElement('span');
+    d.className = 'dot';
+    host.appendChild(d);
+    dotEls.push(d);
+  }
+})();
+
+/* ---------------- render ---------------- */
+function render(){
+  var t = TITLE.value, b = BODY.value;
+  var noSp = noSpaceLen(b), wiSp = b.length, tLen = t.length;
+
+  /* title */
+  var tp = $('titlePill');
+  tp.textContent = tLen + '자 / 30자';
+  tp.className = 'pill' + (tLen === 0 ? '' : (tLen <= 30 ? ' ok' : ' warn'));
+
+  var region = /태평동|유천동/.test(t);
+  var rp = $('regionPill');
+  rp.textContent = region ? '지역 키워드 ✓' : '지역 키워드 ✗';
+  rp.className = 'pill ' + (region ? 'ok' : 'warn');
+
+  $('titleNote').textContent =
+    tLen === 0 ? "제목을 입력하면 글자수와 지역 키워드를 바로 확인해요." :
+    tLen > 30 ? (tLen - 30) + "자 초과 · 30자 이내로 줄이면 모바일에서 끝까지 보여요." :
+    region ? "좋아요. 30자 이내에 지역 키워드까지 들어갔어요." :
+    "'태평동' 또는 '유천동'을 넣으면 지역 검색에 유리해요.";
+
+  $('titleLine').textContent = tLen + '자';
+  $('titleHint').innerHTML = '<b>' + tLen + '</b> / 30자 권장';
+  $('titleRegion').textContent = region ? '지역 키워드 ✓' : '지역 키워드 없음';
+  $('titleRegion').style.color = region ? 'var(--ok)' : 'var(--muted)';
+
+  /* body */
+  $('noSpace').innerHTML = noSp.toLocaleString('ko-KR') + '<i>자</i>';
+  $('withSpace').innerHTML = wiSp.toLocaleString('ko-KR') + '<i>자</i>';
+  $('bodyLine').textContent = '공백 제외 ' + noSp.toLocaleString('ko-KR') + '자';
+
+  var st = $('bodyState');
+  if(noSp === 0){ st.textContent = '작성 전'; st.className = 'pill'; }
+  else if(noSp < 1000){ st.textContent = '부족'; st.className = 'pill warn'; }
+  else if(noSp <= 1500){ st.textContent = '적정'; st.className = 'pill ok'; }
+  else { st.textContent = '길어짐'; st.className = 'pill bad'; }
+
+  var pct = Math.min(100, noSp / 1500 * 100);
+  var fill = $('bodyFill');
+  fill.style.width = pct + '%';
+  fill.style.background = noSp < 1000 ? '#d9a441' : (noSp <= 1500 ? 'linear-gradient(90deg,#6f8c4f,#93b56d)' : '#c05a45');
+
+  $('bodyNote').textContent =
+    noSp === 0 ? '1,000~1,500자를 채우면 황금 구간이에요.' :
+    noSp < 1000 ? (1000 - noSp).toLocaleString('ko-KR') + '자만 더 쓰면 황금 구간!' :
+    noSp <= 1500 ? '황금 구간입니다. 지금 길이가 딱 좋아요.' :
+    (noSp - 1500).toLocaleString('ko-KR') + '자 초과 · 핵심만 남기면 더 좋아요.';
+
+  /* keywords */
+  var scope = t + '\n' + b;
+  var present = 0;
+  for(var i=0;i<KEYWORDS.length;i++){
+    var c = countRe(scope, KEYWORDS[i].re);
+    if(c > 0) present++;
+    var pill = kwRows[i];
+    pill.textContent = c + '회';
+    pill.className = 'pill' + (c === 0 ? '' : (c <= 5 ? ' ok' : ' warn'));
+    pill.title = c === 0 ? '아직 없음' : (c <= 5 ? '적정' : '과다 주의');
+    if(c > 5) pill.textContent = c + '회 주의';
+  }
+  var kws = $('kwState');
+  kws.textContent = present + ' / ' + KEYWORDS.length + '개 포함';
+  kws.className = 'pill ' + (present === KEYWORDS.length ? 'ok' : (present === 0 ? '' : 'warn'));
+
+  /* photos */
+  var ph = photoCount(b);
+  for(var d=0; d<5; d++){
+    dotEls[d].className = 'dot' + (d < ph ? (ph > 5 ? ' over' : ' on') : '');
+  }
+  var ps = $('photoState');
+  ps.textContent = ph + ' / 5장';
+  ps.className = 'pill ' + (ph >= 5 ? 'ok' : (ph === 0 ? '' : 'warn'));
+  $('photoNote').textContent = ph >= 5 ? '사진 자리가 충분해요. 실제 사진 5장 이상을 올려주세요.' :
+    ph === 0 ? '본문의 [사진 …] 표시와 이미지를 세어요. 5장 이상 권장.' :
+    (5 - ph) + '장 더 있으면 좋아요.';
+
+  /* score */
+  var titleScore = (tLen > 0 && tLen <= 30 ? 10 : 0) + (region ? 10 : 0);
+  var bodyScore = (noSp >= 1000 && noSp <= 1500) ? 40 :
+                  (noSp < 1000 ? Math.round(noSp / 1000 * 38) : 30);
+  var kwScore = Math.round(20 * present / KEYWORDS.length);
+  var photoScore = Math.round(20 * Math.min(ph, 5) / 5);
+  var score = Math.max(0, Math.min(100, titleScore + bodyScore + kwScore + photoScore));
+
+  $('scoreVal').textContent = score;
+  ringFg.style.strokeDasharray = RING_LEN;
+  ringFg.style.strokeDashoffset = RING_LEN * (1 - score / 100);
+  ringFg.style.stroke = score >= 80 ? '#4f7a3b' : (score >= 50 ? '#8a9f5e' : '#c1852c');
+  $('dashSummary').textContent = '본문 ' + noSp.toLocaleString('ko-KR') + '자 · 사진 ' + ph + '장 · 키워드 ' + present + '/' + KEYWORDS.length;
+
+  /* tags */
+  var list = parseTags(TAGS.value);
+  for(var k=0;k<chipEls.length;k++){
+    var on = list.indexOf(chipEls[k].dataset.tag) >= 0;
+    chipEls[k].setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+  $('tagCount').textContent = list.length + '개 선택';
+}
+
+/* ---------------- insert / templates ---------------- */
+var caretPos = 0;
+function noteCaret(){ caretPos = BODY.selectionStart || 0; }
+
+function insertText(text){
+  var val = BODY.value;
+  var focused = document.activeElement === BODY;
+  var pos = focused ? (BODY.selectionStart === null ? val.length : BODY.selectionStart) : Math.min(caretPos, val.length);
+  var end = focused ? (BODY.selectionEnd === null ? pos : BODY.selectionEnd) : pos;
+  BODY.value = val.slice(0, pos) + text + val.slice(end);
+  var np = pos + text.length;
+  caretPos = np;
+  BODY.focus();
+  try { BODY.setSelectionRange(np, np); } catch(e){}
+  BODY.scrollTop = BODY.scrollHeight;
+  scheduleSave();
+  render();
+}
+
+var undoState = null;
+function applyTemplate(key){
+  var tpl = TPL[key];
+  if(!tpl) return;
+  var had = BODY.value.trim() !== '';
+  undoState = { title: TITLE.value, body: BODY.value, tags: TAGS.value };
+
+  BODY.value = tpl.body;
+  if(!TITLE.value.trim() && tpl.title) TITLE.value = tpl.title;
+  if(tpl.tags && tpl.tags.length){
+    var cur = parseTags(TAGS.value);
+    for(var i=0;i<tpl.tags.length;i++){
+      if(cur.indexOf(tpl.tags[i]) === -1) cur.push(tpl.tags[i]);
+    }
+    writeTags(cur);
+  }
+  caretPos = BODY.value.length;
+  scheduleSave();
+  render();
+
+  if(had){
+    toast('템플릿을 불러왔어요', '되돌리기', function(){
+      if(!undoState) return;
+      TITLE.value = undoState.title; BODY.value = undoState.body; TAGS.value = undoState.tags;
+      undoState = null; scheduleSave(); render(); toast('되돌렸어요');
+    });
+  } else {
+    toast('템플릿을 불러왔어요. 빈 곳을 채워보세요');
+  }
+}
+
+/* ---------------- copy ---------------- */
+function fallbackCopy(text){
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;padding:0;border:0;opacity:0.01;';
+  document.body.appendChild(ta);
+  var sel = document.getSelection();
+  var prev = (sel && sel.rangeCount > 0) ? sel.getRangeAt(0) : null;
+  ta.focus();
+  ta.select();
+  ta.setSelectionRange(0, ta.value.length);
+  var ok = false;
+  try { ok = document.execCommand('copy'); } catch(e){ ok = false; }
+  document.body.removeChild(ta);
+  if(prev && sel){ try { sel.removeAllRanges(); sel.addRange(prev); } catch(e){} }
+  return ok;
+}
+
+function manualCopySheet(text){
+  openModal('직접 복사해 주세요', '아래 글을 길게 눌러 전체 선택 → 복사 해 주세요.', '닫기', function(){}, 
+    '<textarea id="manualText" readonly>' + text.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</textarea>');
+  var mt = $('manualText');
+  if(mt){ mt.focus(); mt.setSelectionRange(0, mt.value.length); }
+}
+
+function copyText(text, label){
+  if(!text || !text.trim()){ toast(label + ' 내용이 비어 있어요'); return; }
+  function done(){ toast(label + ' 복사했어요'); }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(done).catch(function(){
+      if(fallbackCopy(text)) done(); else manualCopySheet(text);
+    });
+  } else {
+    if(fallbackCopy(text)) done(); else manualCopySheet(text);
+  }
+}
+
+function tagsText(){ return TAGS.value.trim(); }
+function titleText(){ return TITLE.value.trim(); }
+function bodyText(){ return BODY.value; }
+function allText(){
+  var parts = [];
+  if(titleText()) parts.push(titleText());
+  parts.push(bodyText());
+  if(tagsText()) parts.push(tagsText());
+  return parts.join('\n\n');
+}
+function bodyWithTags(){
+  var parts = [bodyText()];
+  if(tagsText()) parts.push(tagsText());
+  return parts.join('\n\n');
+}
+
+/* ---------------- bind ---------------- */
+$('copyTitle').onclick = function(){ copyText(titleText(), '제목'); };
+$('copyBody').onclick = function(){ copyText(bodyText(), '본문'); };
+$('copyAll').onclick = function(){ copyText(bodyWithTags(), '본문+태그'); };
+$('copyFull').onclick = function(){ copyText(allText(), '제목+본문+태그'); };
+$('fabTitle').onclick = function(){ copyText(titleText(), '제목'); };
+$('fabAll').onclick = function(){ copyText(bodyWithTags(), '본문+태그'); };
+
+var blkMap = { hello: HELLO, bye: BYE, photo: PHOTO_MARK };
+var blkButtons = document.querySelectorAll('.blk');
+for(var i=0;i<blkButtons.length;i++){
+  (function(btn){
+    btn.onclick = function(){
+      insertText(blkMap[btn.dataset.blk]);
+      toast('본문에 넣었어요');
+    };
+  })(blkButtons[i]);
+}
+
+var tplButtons = document.querySelectorAll('.tpl');
+for(var j=0;j<tplButtons.length;j++){
+  (function(btn){
+    btn.onclick = function(){ applyTemplate(btn.dataset.tpl); };
+  })(tplButtons[j]);
+}
+
+$('clearTags').onclick = function(){
+  if(!TAGS.value.trim()){ toast('이미 비어 있어요'); return; }
+  TAGS.value = '';
+  scheduleSave(); render(); toast('태그를 비웠어요');
+};
+$('pickRecommended').onclick = function(){
+  var cur = parseTags(TAGS.value);
+  for(var i=0;i<RECOMMENDED.length;i++){
+    if(cur.indexOf(RECOMMENDED[i]) === -1) cur.push(RECOMMENDED[i]);
+  }
+  writeTags(cur);
+  scheduleSave(); render(); toast('추천 태그를 채웠어요');
+};
+
+$('resetAll').onclick = function(){
+  openModal('작성 중인 글을 모두 지울까요?', '제목·본문·태그가 모두 지워지고 되돌릴 수 없어요.', '초기화', function(){
+    TITLE.value = ''; BODY.value = ''; TAGS.value = '';
+    undoState = null;
+    try { localStorage.removeItem(KEY); } catch(e){}
+    $('saveState').textContent = '새 글로 시작';
+    scheduleSave(); render(); toast('초기화했어요');
+  });
+};
+
+var userChoice = null;   /* null = 자동(스크롤에 따라) · 'open' / 'closed' = 사용자가 직접 지정 */
+var autoCollapsed = false;
+function setDash(open){
+  dash.classList.toggle('open', open);
+  dashToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+dashToggle.onclick = function(){
+  var open = !dash.classList.contains('open');
+  userChoice = open ? 'open' : 'closed';
+  autoCollapsed = false;
+  setDash(open);
+  scheduleSave();
+};
+
+/* 본문을 쓰려고 스크롤하면 요약 바만 남기고 자동으로 접힙니다 */
+window.addEventListener('scroll', function(){
+  var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+  if(userChoice !== null) return;
+  if(y > 150 && !autoCollapsed){ autoCollapsed = true; setDash(false); }
+  else if(y < 40 && autoCollapsed){ autoCollapsed = false; setDash(true); }
+}, { passive:true });
+
+TITLE.addEventListener('input', function(){ scheduleSave(); render(); });
+BODY.addEventListener('input', function(){ noteCaret(); scheduleSave(); render(); });
+/* 본문을 쓰는 동안에는 하단 복사 바를 숨겨 키보드에 가리지 않게 합니다 */
+var fabEl = document.querySelector('.fab');
+BODY.addEventListener('focus', function(){ fabEl.classList.add('hide'); });
+BODY.addEventListener('blur', function(){ fabEl.classList.remove('hide'); });
+TAGS.addEventListener('input', function(){ scheduleSave(); render(); });
+['keyup','click','select','focus'].forEach(function(ev){
+  BODY.addEventListener(ev, noteCaret);
+});
+document.addEventListener('visibilitychange', function(){ if(document.hidden && saveTimer) writeStore(); });
+window.addEventListener('pagehide', function(){ if(saveTimer) writeStore(); });
+
+/* ---------------- init ---------------- */
+(function init(){
+  var saved = readStore();
+  if(saved){
+    TITLE.value = saved.title || '';
+    BODY.value = saved.body || '';
+    TAGS.value = saved.tags || '';
+    if(saved.open === false){ setDash(false); }
+    render();
+    if(saved.body || saved.title){
+      var d = new Date(saved.at || Date.now());
+      var hh = ('0'+d.getHours()).slice(-2), mm = ('0'+d.getMinutes()).slice(-2);
+      $('saveState').textContent = '자동 저장 ' + hh + ':' + mm;
+      $('saveInfo').textContent = '작성 중이던 글을 불러왔어요 (마지막 저장 ' + hh + ':' + mm + ')';
+    }
+  } else {
+    render();
+  }
+  caretPos = BODY.value.length;
+})();
+
+})();
+</script>
+</body>
+</html>
